@@ -17,9 +17,13 @@ Para a execução do projeto, tenha certeza que o Java está instalado em sua m�
 
 Mas, caso queira recuperar o seu acesso, basta seguir o passo a passo para criar outro usuário e senha no sistema. ✅
 
-## Funcionalidades Implementadas 
 
-⚠️ *OBS:* Tratamento da maioria das Exceções adicionado ✅
+### Importante: ‼️
+
+- ⚠️ *OBS:* Tratamento da maioria das Exceções adicionado ✅
+- 👃🏻💨 *Code Smells:* É possível identificar _Bloaters_, já que o código está grande e consome responsabilidade de outras classes; _Change Preventers_, visto que alguns pontos podem atingir outros, se houver alterações; e _Couplers_, já que algumas classes dependem de outras.  
+
+## Funcionalidades Implementadas 
 
 1. Criar um novo projeto: ✅
  - É possível criar um projeto de acordo com os seus atributos (nome, data inicial, data final, coordenador, agência de financiamento, descrição do projeto, valor da bolsa e colaboradores).
@@ -41,5 +45,7 @@ Mas, caso queira recuperar o seu acesso, basta seguir o passo a passo para criar
   - O sistema é capaz de gerar um relatório geral acerca dos projetos que foram iniciados, finalizados e em andamento, bem como os seus atributos de articipante, valor da bolsa, etc. 
 10. Undo/redo ❌
  - Funcionalidade que permite desfazer ou refazer o que foi digitado. Tentar implementar no final, caso sobre tempo. 
+ 
+ 
  
  
