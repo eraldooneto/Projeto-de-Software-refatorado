@@ -8,7 +8,7 @@ Idioma da aplicação: Inglês
 
 ## Como executar o projeto: 👩🏻‍💻
 
-Para a execução do projeto, tenha certeza que o Java está instalado em sua máquina. Caso não esteja, faça a instalação da versão [Java 17.0.4](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) de acordo com o seu sistema operacional. Em seguida, faça o download da pasta _src_ desse repositório abra em um editor de código de sua preferência, como o Visual Studio Code, por exemplo. Por fim,  **execute** o arquivo _Main.java_ e utilize-o. 
+Para a execução do projeto, tenha certeza que o Java está instalado em sua máquina. Caso não esteja, faça a instalação da versão [Java 17.0.4](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) de acordo com o seu sistema operacional. Em seguida, faça o download da pasta _src_ desse repositório abra em um editor de código de sua preferência, como o Visual Studio Code, por exemplo. Por fim,  **execute** o arquivo _Program.java_ e utilize-o. 
 
 ### Para realizar o login, use as seguintes credenciais ⚠️ 
 
