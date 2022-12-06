@@ -1,9 +1,11 @@
+package entities;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.text.SimpleDateFormat;
 
-import enums.ProjectStatus;
+import entities.enums.ProjectStatus;
 
 public class Project implements Comparable<Project>{
     private String name;
@@ -19,6 +21,7 @@ public class Project implements Comparable<Project>{
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public Project() {
+    	
 	}
 
     public Project(String name, Date startDate, Date finalDate, String coordinator, String financialAgency, String description, double scholarshipValue) {

@@ -1,14 +1,18 @@
+package entities;
+
 import  java.util.ArrayList;
 import  java.util.List;
 
-import enums.ProjectStatus;
+import entities.enums.ProjectStatus;
 
 public abstract class Collaborator {
 
     private String name;
     private String email;
+ 
     private List<Project> projects = new ArrayList<>();
     private List<AcademicProduction> academicProductions = new ArrayList<>();
+    
     public Collaborator (String name, String email) {
         this.name = name;
         this.email = email;
@@ -21,7 +25,7 @@ public abstract class Collaborator {
     public String getCollaboratorEmail() {
         return email;
     }
-
+    
     public List<Project> getCollaboratorProjects() {
 		return projects;
 	}

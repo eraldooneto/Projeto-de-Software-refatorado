@@ -1,3 +1,5 @@
+package entities;
+
 public class Orientation extends AcademicProduction{
     private String description;
     private int numberOfTasks;

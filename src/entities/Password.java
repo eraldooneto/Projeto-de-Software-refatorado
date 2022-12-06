@@ -1,4 +1,6 @@
-public class Password {
+package entities;
+
+public final class Password {
     
     private String username = "admin";
 	private String password = "1234";

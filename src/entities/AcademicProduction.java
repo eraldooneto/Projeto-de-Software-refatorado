@@ -1,3 +1,5 @@
+package entities;
+
 public abstract class AcademicProduction implements Comparable<AcademicProduction> {
     protected String title;
     protected int year;

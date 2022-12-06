@@ -1,4 +1,6 @@
-public class Publication extends AcademicProduction {
+package entities;
+
+public final class Publication extends AcademicProduction {
     private String conferenceId;
 
     public Publication() {
