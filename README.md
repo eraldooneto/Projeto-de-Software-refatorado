@@ -46,6 +46,11 @@ Mas, caso queira recuperar o seu acesso, basta seguir o passo a passo para criar
 10. Undo/redo ❌
  - Funcionalidade que permite desfazer ou refazer o que foi digitado. Tentar implementar no final, caso sobre tempo. 
  
+ ## Design Patterns
+ - Introduce Parameter Object ✅: Foi criada uma nova classe chamada ParameterObject, pois havia vários casos em que construtores instanciavam um objeto com os parâmetros name e email. Logo, ficou melhor criar um novo objeto, instanciá-lo com name e email e depois enviar o mesmo objeto como parâmetro para os construtores.
+ 
+ - Extract Class ✅: Foi criado um novo método na classe Program chamado printAcademicProduction, pois a classe Collaborator e a classe Project tinham um método que executava da mesma forma. Assim, com o objetivo de evitar a duplicação de código, foi criado esse novo método que executa para objetos do tipo Collaborator e para objetos do tipo Project de maneira igual.
+ 
  
  
  
