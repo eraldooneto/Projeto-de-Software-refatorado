@@ -33,10 +33,24 @@ public class Program {
 		    public final static Password userCredentials = new Password();
 
 		    public static void main(String[] args) throws ParseException {
-		        SimpleDateFormat dataFormat = new SimpleDateFormat("dd/mm/yyyy");
+		        
+				SimpleDateFormat dataFormat = new SimpleDateFormat("dd/mm/yyyy");
 		        Locale.setDefault(Locale.US);  
 		        List<Project> listProjects = new ArrayList<>();
 				List<Collaborator> listCollaborators = new ArrayList<>();
+
+				String[] menuOptions = {
+					"[0] - Exit the System",
+					"[1] - Create a New Project",
+					"[2] - Start a Project",
+					"[3] - Finish a Project",
+					"[4] - Alocate a Collaborator to a project",
+					"[5] - Create a Publication of a Project",
+					"[6] - Orientation and Tasks Management",
+					"[7] - Consult a Collaborator",
+					"[8] - Consult a Project",
+					"[9] - Generate the Academic Report about the projects"
+				}; 
 
 		        int select = -1;
 
@@ -48,7 +62,6 @@ public class Program {
 
 		        while (!user.equals(userCredentials.getUsername()) || !password.equals(userCredentials.getPassword())) {
 					
-		            // tratar
 					System.out.println("The username or password must be worng. Would you like to redefine your credentials? y/n");
 					
 					char menuChoice = read.nextLine().charAt(0);
@@ -81,29 +94,22 @@ public class Program {
 
 		            // Começa aqui
 
-		            do {
-		                
-		                System.out.println("[0] - Exit the System");
-		                System.out.println("[1] - Create a New Project");
-		                System.out.println("[2] - Start a Project");
-		                System.out.println("[3] - Finish a Project");
-		                System.out.println("[4] - Alocate a Collaborator to a project");
-		                System.out.println("[5] - Create a Publication of a Project");
-		                System.out.println("[6] - Orientation and Tasks Management");
-		                System.out.println("[7] - Consult a Collaborator");
-		                System.out.println("[8] - Consult a Project");
-		                System.out.println("[9] - Generate the Academic Report about the projects");
-		                System.out.println();
-		                
-		                System.out.print("Please, select an option: ");
+		            while(select != 0) {
+		            
+						System.out.println();
+
+						printMenu(menuOptions);
 		                System.out.println();
 		                
 		                try {
-		                    select = Integer.parseInt(read.nextLine());
+		                    //select = Integer.parseInt(read.nextLine());
+							select = read.nextInt();
 
 		                } catch (NumberFormatException e) {
 		                    System.out.println("It is not a valid input.");
 		                } 
+
+						read.nextLine();
 		                
 		                //select = read.nextInt();
 
@@ -166,10 +172,6 @@ public class Program {
 
 		                        // Tratar
 		                        System.out.print("How many collaborators does the project have? ");
-		                        
-		                        //int numberOfParticipants = read.nextInt();
-		                        //read.nextLine();
-
 		                        int numberOfParticipants = -1;
 
 		                        try {
@@ -180,7 +182,6 @@ public class Program {
 		                            numberOfParticipants = Integer.parseInt(read.nextLine());
 		                        }
 
-		                        
 		                        int professorsNumber = 0;
 		                        
 		                        Project project = new Project(title, startDate, finalDate, coordinator, financialAgency, description, scholarshipValue);
@@ -191,7 +192,6 @@ public class Program {
 		                           System.out.println();
 		                           System.out.println("PARTICIPANT #" + (i + 1) + ":");
 		                        
-		                            // define this function
 		                           participant = setCollaborator(listCollaborators, read); 
 
 		                           if (participant instanceof Undergraduation && participant.numberOfProjectsInElaboration() >= 2) {
@@ -218,6 +218,8 @@ public class Program {
 		                        break;
 
 		                    case 2:
+								read.nextLine();
+
 		                        System.out.println("----------START A PROJECT----------");
 		                        System.out.println();
 
@@ -265,8 +267,6 @@ public class Program {
 		                            title = read.nextLine(); 
 		                            auxiliarInProject = LookForProject(listProjects, title);
 		                        }
-
-		                        // Lógica de publicação para finalizar? ...
 
 		                        int publications = 0;
 		                        for (AcademicProduction ap : auxiliarInProject.getAcademicProduction()) {
@@ -451,8 +451,6 @@ public class Program {
 
 		                        }
 
-		                        // Tratar aqui 
-
 		                        System.out.print("Does the orientatio require any project to associate? y/n ");
 		                        choice = read.next().charAt(0);
 
@@ -500,11 +498,11 @@ public class Program {
 		                        System.out.println(auxiliarCollaborator);
 		                        System.out.println("Collaborator's Project List: ");
 		                        
-		                        // Resolver esse bug 👽👽👽👽👽👽👽👽👽👽👽
-
-		                        auxiliarCollaborator.printCollaboratorProjects();
+								auxiliarCollaborator.printCollaboratorProjects();
+		                        
 		                        System.out.println("Collaborator's Academic Production: ");
-		                        auxiliarCollaborator.printCollaboratorAcademicProductions();
+		                        		               
+		                        printAcademicProduction(auxiliarCollaborator.getAcademicProductions());
 		                        System.out.println();
 
 		                        break;
@@ -526,14 +524,17 @@ public class Program {
 		                        }
 
 		                        System.out.println("Success! The project was found!");
-		                        System.out.println("Project Informations: ");
+		                        
+								System.out.println("Project Informations: ");
 		                        System.out.println(auxiliarInProject);
-		                        System.out.println("Collaborators that is current allocated to the project: ");
+		                        
+								System.out.println("Collaborators that is current allocated to the project: ");
 		                        auxiliarInProject.printCollaboratorsOnProject();
-		                        System.out.println("Project's Academic Production: ");
+		                        
+								System.out.println("Project's Academic Production: ");
 		                        Collections.sort(auxiliarInProject.getAcademicProduction());
-		                        auxiliarInProject.printAcademicProductionProjects();
-		                        System.out.println();
+		                        
+		                        printAcademicProduction(auxiliarInProject.getAcademicProduction());
 
 		                        break;
 		                    
@@ -547,8 +548,6 @@ public class Program {
 		                        int publicationsNumber = 0;
 		                        int orientationsNumber = 0; 
 
-		                        //System.out.println("-------GENERAL REPORT-------");
-		                        //System.out.println();
 		                        System.out.println("Number of Collaborators: " + listCollaborators.size());
 
 		                        for (Project p : listProjects) {
@@ -593,11 +592,11 @@ public class Program {
 		                        break;
 		                }
 		            
+		            } 
 
-		            } while (select != 0);
 
 		        } else {
-		            System.out.println("See you!");
+		            System.out.println("The system has been closed.");
 		        }
 
 		        read.close();
@@ -719,6 +718,24 @@ public class Program {
 		        }
 
 		        return null;
+		  }
+
+		  public static void printAcademicProduction(List<AcademicProduction> academicProduction) {
+			  
+			for(AcademicProduction ap : academicProduction) {
+			  System.out.println(ap);
+		  	}
+
+		  }
+
+		  public static void printMenu(String[] options) {
+			for (String option : options) {
+				System.out.println(option);
+			}
+
+			System.out.println();
+			System.out.print("Please, select an option: ");
+			
 		  }
 	
 	}
