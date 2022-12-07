@@ -46,6 +46,10 @@ Mas, caso queira recuperar o seu acesso, basta seguir o passo a passo para criar
 10. Undo/redo ❌
  - Funcionalidade que permite desfazer ou refazer o que foi digitado. Tentar implementar no final, caso sobre tempo. 
  
+  ## Exceptions 
+  
+  Foi adicionado o tratamento de exceções para a maioria dos casos de erro que o usuário possa cometer.
+ 
  ## Design Patterns
  - Introduce Parameter Object ✅: Foi criada uma nova classe chamada ParameterObject, pois havia vários casos em que construtores instanciavam um objeto com os parâmetros name e email. Logo, ficou melhor criar um novo objeto, instanciá-lo com name e email e depois enviar o mesmo objeto como parâmetro para os construtores.
  
