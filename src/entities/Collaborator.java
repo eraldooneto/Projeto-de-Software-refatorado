@@ -13,9 +13,9 @@ public abstract class Collaborator {
     private List<Project> projects = new ArrayList<>();
     private List<AcademicProduction> academicProductions = new ArrayList<>();
     
-    public Collaborator (String name, String email) {
-        this.name = name;
-        this.email = email;
+    public Collaborator(ParameterObject parameterObject) {
+        this.name = parameterObject.getName();
+        this.email = parameterObject.getEmail();
     }
 
     public String getCollaboratorName() {

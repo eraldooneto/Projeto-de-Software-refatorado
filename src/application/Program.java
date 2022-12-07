@@ -25,6 +25,7 @@ import entities.Publication;
 import entities.Researcher;
 import entities.Tester;
 import entities.Undergraduation;
+import entities.ParameterObject;
 import entities.enums.ProjectStatus;
 
 public class Program {
@@ -650,22 +651,26 @@ public class Program {
 		                function = read.nextInt();
 		            }
 
+					read.nextLine();
+
+					ParameterObject parameterObject = new ParameterObject(name, email);
+
 		            if (function == 1) {
-		                participant = new Undergraduation(name, email);
+		                participant = new Undergraduation(parameterObject);
 		            } else if (function == 2){
-		                participant = new Graduation(name, email);
+		                participant = new Graduation(parameterObject);
 		            } else if (function == 3) {
-		                participant = new Postgraduation(name, email);
+		                participant = new Postgraduation(parameterObject);
 		            } else if (function == 4) {
-		                participant = new Professor(name, email);
+		                participant = new Professor(parameterObject);
 		            } else if (function == 5){
-		                participant = new Researcher(name, email);
+		                participant = new Researcher(parameterObject);
 		            } else if (function == 6) {
-		                participant = new Developer(name, email);
+		                participant = new Developer(parameterObject);
 		            } else if (function == 7) {
-		                participant = new Tester(name, email);
+		                participant = new Tester(parameterObject);
 		            } else {
-		                participant = new Analist(name, email);
+		                participant = new Analist(parameterObject);
 		            }
 
 		            listCollaborators.add(participant);
