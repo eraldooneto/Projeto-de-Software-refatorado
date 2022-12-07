@@ -55,6 +55,8 @@ Mas, caso queira recuperar o seu acesso, basta seguir o passo a passo para criar
  
  - Extract Class ✅: Foi criado um novo método na classe Program chamado printAcademicProduction, pois a classe Collaborator e a classe Project tinham um método que executava da mesma forma. Assim, com o objetivo de evitar a duplicação de código, foi criado esse novo método que executa para objetos do tipo Collaborator e para objetos do tipo Project de maneira igual.
  
+  - Single Responsability Principle ✅: Cada classe criada no projeto possui as suas responsabilidades. Por exemplo, a classe Collaborator e AcademicProduction possuem as responsabilidades definidas dentro das suas próprias regras de negócio. Isso quer dizer que ambas as classes são independentes, favorecendo a coesão do módulo do sistema.  
+ 
  
  
  
